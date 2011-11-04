@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-serbian-def-cyr
-Version:	20111103
+Version:	20111104
 Release:	1
 Summary:	TeXLive serbian-def-cyr package
 Group:		Publishing
@@ -46,6 +46,7 @@ TeXLive serbian-def-cyr package.
 %doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/proba.tex
 %doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/usage.pdf
 %doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/usage.tex
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -56,3 +57,5 @@ TeXLive serbian-def-cyr package.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
