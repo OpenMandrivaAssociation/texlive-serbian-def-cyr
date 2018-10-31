@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-serbian-def-cyr
 Version:	20180303
-Release:	1
+Release:	2
 Summary:	TeXLive serbian-def-cyr package
 Group:		Publishing
 URL:		http://tug.org/texlive
