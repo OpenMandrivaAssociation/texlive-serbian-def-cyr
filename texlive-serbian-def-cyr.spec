@@ -1,43 +1,20 @@
-Name:		texlive-serbian-def-cyr
-Version:	23734
-Release:	2
-Summary:	TeXLive serbian-def-cyr package
+%global tl_name serbian-def-cyr
+%global tl_revision 23734
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
+Summary:	Serbian cyrillic localization
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-def-cyr.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-def-cyr.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/serbian-def-cyr
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-def-cyr.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/serbian-def-cyr.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive serbian-def-cyr package.
+This package provides abstract, chapter, title, date etc, for serbian
+language in cyrillic scripts in T2A encoding and cp1251 code pages.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/serbian-def-cyr/serbian-def-cyr.sty
-%doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/README
-%doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/proba.pdf
-%doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/proba.tex
-%doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/usage.pdf
-%doc %{_texmfdistdir}/doc/latex/serbian-def-cyr/usage.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
